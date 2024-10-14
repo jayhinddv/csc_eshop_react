@@ -1,6 +1,7 @@
 function Search() {
     return (
       <>
+      <section style={{ background: '#42987a' }}>
         <div className="container py-5 w-100">
           {/* Basic Input */}
           <div className="d-flex align-items-center justify-content-center w-100">
@@ -22,6 +23,7 @@ function Search() {
             </div>
           </div>
         </div>
+        </section>
       </>
     );
   }

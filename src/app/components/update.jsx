@@ -1,10 +1,10 @@
 // Import the image
 import aaImage from '../../assets/image/aa.jpg';
-
+import '../update.css'; // Import custom CSS for marquee
 
 function Update() {
   return (
-    <>
+    <section>
       <div className="container pt-1">
         <div className="row d-flex justify-content-center align-items-center my-4">
           <div className="d-flex justify-content-center align-items-center mx-auto">
@@ -14,7 +14,11 @@ function Update() {
 
         <div className="row py-2">
           <div className="col-md-6">
-            <div className="scroll-container" onMouseOver={(e) => e.target.classList.add('paused')} onMouseOut={(e) => e.target.classList.remove('paused')}>
+            <div
+              className="scroll-container"
+              onMouseOver={(e) => e.currentTarget.classList.add('paused')}
+              onMouseOut={(e) => e.currentTarget.classList.remove('paused')}
+            >
               <div className="scroll-content">
                 <h1>Welcome to the Marquee</h1>
                 <p>This is some scrolling content.</p>
@@ -29,7 +33,7 @@ function Update() {
           </div>
         </div>
       </div>
-    </>
+    </section>
   );
 }
 

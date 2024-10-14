@@ -2,6 +2,7 @@
 function Services() {
     return (
       <>
+      <section class="ai_bg">
         <div className="container py-5 pb-4">
           <div className="row d-flex justify-content-center align-items-center my-4">
             <div className="d-flex justify-content-center align-items-center mx-auto">
@@ -12,9 +13,7 @@ function Services() {
           <div className="row py-4 g-xl-0 g-4">
             <div className="col-lg-6 col-xl-3">
               <div className="card_wrapper h-100 p-2 d-flex justify-content-center align-items-center flex-column">
-                <div className="aibrain">
-                  <img src="./assets/image/ai-brain.png" alt="AI Brain" />
-                </div>
+          
                 <div className="card_text mt-2">
                   <h6 className="text-center">Advanced AI Trading</h6>
                   <ul className="pt-2">
@@ -28,9 +27,6 @@ function Services() {
   
             <div className="col-lg-6 col-xl-3">
               <div className="card_wrapper h-100 p-2 d-flex justify-content-center align-items-center flex-column">
-                <div className="aibrain">
-                  <img src="./assets/image/risk-management.png" alt="Risk Management" />
-                </div>
                 <div className="card_text mt-2">
                   <h6 className="text-center">Risk Management</h6>
                   <ul className="pt-2">
@@ -44,9 +40,6 @@ function Services() {
   
             <div className="col-lg-6 col-xl-3">
               <div className="card_wrapper h-100 p-2 d-flex justify-content-center align-items-center flex-column">
-                <div className="aibrain">
-                  <img src="./assets/image/analytics.png" alt="Analytics" />
-                </div>
                 <div className="card_text mt-2">
                   <h6 className="text-center">Market Analytics</h6>
                   <ul className="pt-2">
@@ -61,9 +54,6 @@ function Services() {
   
             <div className="col-lg-6 col-xl-3">
               <div className="card_wrapper h-100 p-2 d-flex justify-content-center align-items-center flex-column">
-                <div className="aibrain">
-                  <img src="./assets/image/evolution.png" alt="Evolution" />
-                </div>
                 <div className="card_text mt-2">
                   <h6 className="text-center">The Evolution</h6>
                   <ul className="pt-2">
@@ -77,6 +67,7 @@ function Services() {
             </div>
           </div>
         </div>
+        </section>
       </>
     );
   }
