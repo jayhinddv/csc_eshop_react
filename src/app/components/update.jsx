@@ -1,8 +1,23 @@
-// Import the image
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import aaImage from '../../assets/image/aa.jpg';
-import '../update.css'; // Import custom CSS for marquee
+import '../update.css';
 
 function Update() {
+  const [scrollContent, setScrollContent] = useState([]);
+
+  useEffect(() => {
+    // Fetch scroll content from the API
+    axios.get('https://api.cscsohnag.in/api/v1/get-note')
+      .then(response => {
+        console.log(response.data);
+        setScrollContent(response.data.data);
+      })
+      .catch(error => {
+        console.error("Error fetching scroll content:", error);
+      });
+  }, []);
+
   return (
     <section>
       <div className="container pt-1">
@@ -20,10 +35,9 @@ function Update() {
               onMouseOut={(e) => e.currentTarget.classList.remove('paused')}
             >
               <div className="scroll-content">
-                <h1>Welcome to the Marquee</h1>
-                <p>This is some scrolling content.</p>
-                <p>Hover over to stop the scroll.</p>
-                <p>Move your mouse away to start it again.</p>
+                {scrollContent.map((data) => (
+                  <p key={data._id}>{data.content}</p>
+                ))}
               </div>
             </div>
           </div>
