@@ -8,7 +8,7 @@ function Update() {
 
   useEffect(() => {
     // Fetch scroll content from the API
-    axios.get('https://api.cscsohnag.in/api/v1/get-note')
+    axios.get('https://api.cscsohnag.in/get-note')
       .then(response => {
         console.log(response.data);
         setScrollContent(response.data.data);
