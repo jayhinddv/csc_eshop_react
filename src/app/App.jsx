@@ -1,21 +1,41 @@
-import { useRef } from 'react';
-import Header from './components/header.jsx';
-import Sweeper from './components/sweeper.jsx';
-import Search from './components/search.jsx';
-import Services from './components/services.jsx';
-import Update from './components/update.jsx';
-import ContactUs from './components/contactUs.jsx';
+import React, { Suspense, lazy } from 'react';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import HomeLayout from './layouts/HomeLayout.jsx';
+
+// Lazy-loaded components
+const Home = lazy(() => import('./pages/home.jsx'));
+const NotFound = lazy(() => import('./pages/NotFound.jsx'));
+const UserLayout = lazy(() => import('./layouts/userLayout.jsx'));
+
+// Define the routes array using createBrowserRouter
+const routes = [
+  {
+    path: "/",
+    element: <HomeLayout />,
+    children: [
+      { path: "", element: <Home /> }, // Default home route
+    ]
+  },
+  {
+    path: "user",
+    element: <UserLayout />,
+    children: [
+      { path: "", element: <Home /> }, // User home route
+    ]
+  },
+  {
+    path: "*",
+    element: <NotFound /> // Not found route
+  }
+];
+
+const router = createBrowserRouter(routes);
 
 function App() {
   return (
-    <>
-      <Header></Header>
-      <Sweeper></Sweeper>
-      <Search></Search>
-      <Services></Services>
-      <Update></Update>
-      <ContactUs></ContactUs>
-    </>
+    <Suspense fallback={<div>Loading...</div>}>
+      <RouterProvider router={router} />
+    </Suspense>
   );
 }
 
